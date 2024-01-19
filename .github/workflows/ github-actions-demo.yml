@@ -13,6 +13,7 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - name: List files in the repository
         run: |
-          pwd
+          x=$(pwd)
+          echo $x
           ls -al ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
