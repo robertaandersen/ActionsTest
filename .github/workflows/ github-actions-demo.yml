@@ -16,4 +16,6 @@ jobs:
           x=$(pwd)
           echo $x
           ls -al ${{ github.workspace }}
+          echo "great!"
+          ls -al
       - run: echo "🍏 This job's status is ${{ job.status }}."
