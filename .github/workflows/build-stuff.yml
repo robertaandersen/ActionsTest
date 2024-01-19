@@ -18,4 +18,4 @@ jobs:
   Build-Stuff-Action-Smore:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hallo ${{ github.event_name }}."
+      - run: echo "Hallo ${{ FOO }}."
