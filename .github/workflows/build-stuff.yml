@@ -1,0 +1,17 @@
+name: Build Stuff
+run-name: ${{ github.actor }} is testing out Build Stuff
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hallo ${{ github.event_name }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          x=$(pwd)
+          echo $x
+          ls -al ${{ github.workspace }}
+          echo "great!"
+          ls -al
