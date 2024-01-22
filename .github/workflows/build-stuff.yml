@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out Build Stuff
 on: [push, workflow_dispatch]
 
 jobs:
-  Build-Stuff-Action:
+  Runs-On-PROD:
     runs-on: ubuntu-latest
 
     environment:
@@ -13,19 +13,17 @@ jobs:
       - run: echo "Hallo ${{ github.event_name }}."
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "Hallo ${{ vars.HELLO }}."
-      - name: List files in the repository
-        run: |
-          x=$(pwd)
-          echo $x
-          ls -al ${{ github.workspace }}
-          echo "great!"
-          ls -al
+      - name: Echos the env variables
+        run: echo "Hallo ${{ vars.HELLO }}."
+      - name: Echos the repo variables
+        run: echo "Hallo ${{ vars.FOO }}."
 
-  Build-Stuff-Action-Smore:
+  Runs-On-Dev:
     runs-on: ubuntu-latest
     environment:
       name: DEV
     steps:
-      - run: echo "Hallo ${{ vars.FOO }}."
-      - run: echo "Hallo ${{ vars.HELLO }}."
+      - name: Echos the env variables
+        run: echo "Hallo ${{ vars.HELLO }}."
+      - name: Echos the repo variables
+        run: echo "Hallo ${{ vars.FOO }}."
