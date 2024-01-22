@@ -21,9 +21,9 @@ jobs:
 
       - name: Define something
         id: test_output
-        run: echo ${{ vars.HELLO }}) >> "$GITHUB_OUTPUT"
+        run: (echo ${{ vars.HELLO }}) >> "$GITHUB_OUTPUT"
 
-  Also-Runs-On-De:
+  Also-Runs-On-Dev:
     runs-on: ubuntu-latest
     needs: Runs-On-Dev
     steps:
