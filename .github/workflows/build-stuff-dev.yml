@@ -11,8 +11,14 @@ jobs:
 
     environment:
       name: DEV
+
+    outputs:
+      variable_from_step: ${{ steps.test_output.outputs.HELLO }}
+
     steps:
-      - name: Echos the env variables
-        run: echo "Hallo ${{ vars.HELLO }}."
       - name: Echos the repo variables
         run: echo "Hallo ${{ vars.FOO }}."
+
+      - name: Output something
+        id: test_output
+        run: HELLO=$(echo ${{ vars.HELLO }})"
