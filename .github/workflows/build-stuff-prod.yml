@@ -1,0 +1,19 @@
+name: Build PROD
+run-name: ${{ github.actor }} is testing out Build Stuff PROD
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  Runs-On-PROD:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: PROD
+
+    steps:
+      - name: Echos the env variables
+        run: echo "Hallo ${{ vars.HELLO }}."
+      - name: Echos the repo variables
+        run: echo "Hallo ${{ vars.FOO }}."
