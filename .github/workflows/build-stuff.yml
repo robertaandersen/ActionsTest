@@ -1,6 +1,10 @@
 name: Build Stuff
 run-name: ${{ github.actor }} is testing out Build Stuff
 on: [push, workflow_dispatch]
+
+environment:
+  name: PROD
+
 jobs:
   Build-Stuff-Action:
     runs-on: ubuntu-latest
@@ -19,3 +23,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hallo ${{ vars.FOO }}."
+      - run: echo "Hallo ${{ env.HALLO }}."
