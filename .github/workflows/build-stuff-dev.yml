@@ -21,4 +21,4 @@ jobs:
 
       - name: Output something
         id: test_output
-        run: HELLO=$(echo ${{ vars.HELLO }})"
+        run: HELLO=$(echo ${{ vars.HELLO }})
