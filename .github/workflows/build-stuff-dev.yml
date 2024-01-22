@@ -1,5 +1,5 @@
 name: Build DEV
-run-name: ${{ github.actor }} is testing out Build Stuff PROD
+run-name: ${{ github.actor }} is testing out Build Stuff DEV
 on:
   workflow_dispatch:
   push:
