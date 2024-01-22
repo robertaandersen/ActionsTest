@@ -2,12 +2,13 @@ name: Build Stuff
 run-name: ${{ github.actor }} is testing out Build Stuff
 on: [push, workflow_dispatch]
 
-environment:
-  name: PROD
-
 jobs:
   Build-Stuff-Action:
     runs-on: ubuntu-latest
+
+    environment:
+      name: PROD
+
     steps:
       - run: echo "Hallo ${{ github.event_name }}."
       - name: Check out repository code
