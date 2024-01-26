@@ -18,3 +18,4 @@ jobs:
       - name: Echos the repo variables
         run: |
           echo "Hallo ${{ vars.FOO }}."
+          echo ${{ hashFiles('ble.txt') }}
