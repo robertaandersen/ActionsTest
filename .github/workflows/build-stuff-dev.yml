@@ -53,4 +53,7 @@ jobs:
         run: |
           pwd
           ls -Al
+          cd ..
+          ls -Al
+
           echo "SomeHash:${{ hashFiles('**/ble.js') }}"
