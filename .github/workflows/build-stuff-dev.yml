@@ -52,4 +52,4 @@ jobs:
           OUTPUT2: ${{needs.job1.outputs.output2}}
         run: |
           echo "${{ runner.os }}"
-          echo "SomeHash:${{ hashFiles('**/ble.txt') }}"
+          echo "SomeHash:${{ hashFiles('**/ble.js') }}"
