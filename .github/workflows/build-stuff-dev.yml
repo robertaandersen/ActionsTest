@@ -6,22 +6,22 @@ on:
     branches: [dev]
 
 jobs:
-  Runs-On-Dev:
-    runs-on: ubuntu-latest
+  # Runs-On-Dev:
+  #   runs-on: ubuntu-latest
 
-    environment:
-      name: DEV
+  #   environment:
+  #     name: DEV
 
-    outputs:
-      variable_from_step: ${{ steps.test_output.outputs.HELLO }}
+  #   outputs:
+  #     variable_from_step: ${{ steps.test_output.outputs.HELLO }}
 
-    steps:
-      - name: Echos the repo variables
-        run: echo "Hallo ${{ vars.FOO }}."
+  #   steps:
+  #     - name: Echos the repo variables
+  #       run: echo "Hallo ${{ vars.FOO }}."
 
-      - name: Define something
-        id: test_output
-        run: echo ${{ vars.HELLO }} >> "$GITHUB_OUTPUT"
+  # - name: Define something
+  #   id: test_output
+  #   run: echo ${{ vars.HELLO }} >> "$GITHUB_OUTPUT"
 
   # Also-Runs-On-Dev:
   #   runs-on: ubuntu-latest
