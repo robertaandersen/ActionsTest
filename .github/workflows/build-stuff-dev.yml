@@ -52,5 +52,6 @@ jobs:
           OUTPUT2: ${{needs.job1.outputs.output2}}
         run: |
           pwd
+          ls
           cat ble.js
           echo "SomeHash:${{ hashFiles('**/ble.js') }}"
