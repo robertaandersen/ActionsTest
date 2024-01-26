@@ -23,31 +23,31 @@ jobs:
         id: test_output
         run: echo ${{ vars.HELLO }} >> "$GITHUB_OUTPUT"
 
-  Also-Runs-On-Dev:
-    runs-on: ubuntu-latest
-    needs: Runs-On-Dev
-    steps:
-      - name: Output somethin
-        env:
-          VARIABLE_FROM_STEP: ${{needs.Runs-On-Dev.outputs.variable_from_step}}
-        run: echo $VARIABLE_FROM_STEP
-  job1:
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
-      output2: ${{ steps.step2.outputs.test }}
-    steps:
-      - id: step1
-        run: echo "test=hello" >> "$GITHUB_OUTPUT"
-      - id: step2
-        run: echo "test=world" >> "$GITHUB_OUTPUT"
+  # Also-Runs-On-Dev:
+  #   runs-on: ubuntu-latest
+  #   needs: Runs-On-Dev
+  #   steps:
+  #     - name: Output somethin
+  #       env:
+  #         VARIABLE_FROM_STEP: ${{needs.Runs-On-Dev.outputs.variable_from_step}}
+  #       run: echo $VARIABLE_FROM_STEP
+  # job1:
+  #   runs-on: ubuntu-latest
+  #   # Map a step output to a job output
+  #   outputs:
+  #     output1: ${{ steps.step1.outputs.test }}
+  #     output2: ${{ steps.step2.outputs.test }}
+  #   steps:
+  #     - id: step1
+  #       run: echo "test=hello" >> "$GITHUB_OUTPUT"
+  #     - id: step2
+  #       run: echo "test=world" >> "$GITHUB_OUTPUT"
 
   job2:
     runs-on: ubuntu-latest
-    needs: job1
+    # needs: job1
     steps:
       - env:
           OUTPUT1: ${{needs.job1.outputs.output1}}
           OUTPUT2: ${{needs.job1.outputs.output2}}
-        run: ${{ runner.os}}
+        run: ${{ runner.os }}
