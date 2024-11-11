@@ -16,3 +16,5 @@ jobs:
         run: echo "Hallo ${{ vars.HELLO }}."
       - name: Echos the repo variables
         run: echo "Hallo ${{ vars.FOO }}."
+
+

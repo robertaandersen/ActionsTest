@@ -27,7 +27,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: Build
+      - name: Build and push Docker images
         uses: docker/build-push-action@v5
         with:
           context: .
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
