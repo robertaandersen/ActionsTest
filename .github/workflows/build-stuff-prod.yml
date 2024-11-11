@@ -24,12 +24,20 @@ jobs:
           buildkitd-config-inline: |
             [registry."docker.io"]
               mirrors = ["public.ecr.aws/m3u4c4h9/roberta-test/buildxmirror"]
+
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v5
+      - name: Build and push
+        uses: docker/build-push-action@v6
         with:
-          context: .
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            user/app:latest
+
+      - name: Push image to GHCR
+        run: |
+          docker buildx imagetools create \
+            --tag public.ecr.aws/m3u4c4h9/roberta-test/buildxmirror/buildx:latest \
+            user/app:latest
