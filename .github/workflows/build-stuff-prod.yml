@@ -27,6 +27,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: Build stuff
-        run: |
-          docker buildx build -t test .
+      - name: Build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
