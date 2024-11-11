@@ -24,6 +24,9 @@ jobs:
           buildkitd-config-inline: |
             [registry."docker.io"]
               mirrors = ["public.ecr.aws/m3u4c4h9/roberta-test/buildxmirror"]
+      - name: checkout
+        uses: actions/checkout@v4
+
       - name: Build stuff
         run: |
           docker buildx build -t test .
