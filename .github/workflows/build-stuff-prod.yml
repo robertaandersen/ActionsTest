@@ -30,7 +30,7 @@ jobs:
         run: |
           git branch -a
           yarn nx show projects --base origin/main --affected
-          yarn is-unicorn
+          yarn debug
 
 
 
