@@ -1,3 +1,4 @@
+import { argv } from 'process';
 import yargs  from 'yargs';
 
 const unicornApps = [
@@ -10,9 +11,20 @@ export interface AffectedProjects {
   }
 
 yargs(process.argv.slice(2))
-.command('test', 'debug', () => {}, () => {
-  console.log('test');
-})
+.command<AffectedProjects>(
+  ['test'],
+  'Returns true if the affected projects contain a unicorn',
+  (yargs)=>
+    yargs
+      .option('affected', {
+        requiresArg: true,
+        alias: ['affected'],
+        type: 'array',
+        demandOption: true,
+        default: [],
+      }),
+      function(args) {console.info(args)}
+)
 .command<AffectedProjects>(
     ['unicorn-affected'],
     'Returns true if the affected projects contain a unicorn',
