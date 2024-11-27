@@ -28,10 +28,11 @@ jobs:
 
       - name: Check unicorn affected
         run: |
-          git branch -a
-          yarn nx show projects --base origin/main --affected
-          yarn debug
-          yarn is-unicorn
+          # git branch -a
+          # yarn nx show projects --base origin/main --affected
+          yarn affected
+          # yarn debug
+          # yarn is-unicorn
 
 
 
