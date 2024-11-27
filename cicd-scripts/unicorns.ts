@@ -34,6 +34,8 @@ yargs(process.argv.slice(2))
 function unicornAffected(args: AffectedProjects) {
   const unicornAppFoundInaffected = args.affected.some(item => unicornApps.includes(item));
   if(unicornAppFoundInaffected){
+    console.info(args)
+    console.log('Unicorn found in affected projects');
     process.exit(0);
   } else {
     process.exit(1);
