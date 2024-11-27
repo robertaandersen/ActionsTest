@@ -25,7 +25,7 @@ jobs:
         run: yarn install
 
       - name: Check unicorn affected
-        run: ./test.sh
+        run: yarn nx show projects --affected
 
 
 
