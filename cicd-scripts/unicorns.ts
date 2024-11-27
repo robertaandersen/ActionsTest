@@ -10,6 +10,9 @@ export interface AffectedProjects {
   }
 
 yargs(process.argv.slice(2))
+.command('test', 'debug', () => {}, () => {
+  console.log('test');
+})
 .command<AffectedProjects>(
     ['unicorn-affected'],
     'Returns true if the affected projects contain a unicorn',
