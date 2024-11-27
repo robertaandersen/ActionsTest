@@ -1,6 +1,5 @@
-yarn debug
 UNICORN=$(yarn --silent deubg)
-if [ "$UNICORN" = true ]; then
+if [ "$UNICORN" = 'true' ]; then
     echo "unicorn is detected"
 else
     echo "No unicorn"

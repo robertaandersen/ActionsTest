@@ -37,21 +37,9 @@ yargs(process.argv.slice(2))
           demandOption: true,
           default: [],
         }),
-        unicornAffected,
+        function(args: AffectedProjects) {console.log(args.affected.some(item => unicornApps.includes(item)));}
   )
 .parse();
 
 
-
-function unicornAffected(args: AffectedProjects) {
-  const unicornAppFoundInaffected = args.affected.some(item => unicornApps.includes(item));
-  if(unicornAppFoundInaffected){
-    console.info(args)
-    console.log('Unicorn found in affected projects');
-    process.exit(0);
-  } else {
-    console.log('No unicorn');
-    process.exit(1);
-  }
-}
 
