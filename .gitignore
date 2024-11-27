@@ -1,0 +1,36 @@
+.nx/installation
+.nx/cache
+.nx/workspace-data
+node_modules
+
+vite.config.*.timestamp*
+
+# React specific files
+build/
+public/
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# VS Code specific files
+.vscode/
+*.code-workspace
+
+# Nx specific files
+dist/
+tmp/
+coverage/
+
+
+# Yarn specific files
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.yarnrc.yml

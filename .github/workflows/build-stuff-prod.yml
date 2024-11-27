@@ -39,5 +39,5 @@ jobs:
       - name: Push image to GHCR
         run: |
           docker buildx imagetools create \
-            --tag public.ecr.aws/m3u4c4h9/roberta-test/buildxmirror/buildx:latest \
+            --tag public.ecr.aws/m3u4c4h9/roberta-test/buildxmirror:latest \
             user/app:latest
