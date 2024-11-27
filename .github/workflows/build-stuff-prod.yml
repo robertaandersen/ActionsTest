@@ -27,6 +27,10 @@ jobs:
       - name: Check unicorn affected
         run: |
           UNICORN=$((yarn --silent is-unicorn)
-          echo "Is unicorn affected: $UNICORN"
+          if [ "$UNICORN" = "true" ]; then
+            echo "unicorn is detected"
+          else
+            echo "No unicorn"
+          fi
 
 
