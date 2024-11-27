@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "unicorn": "node unicorns.ts"
+    "unicorn-affected": "ts-node unicorns.ts unicorn-affected"
   },
   "dependencies": {
     "node": "^20.18.1",

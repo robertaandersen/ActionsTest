@@ -6,7 +6,7 @@
   "author": "Róberta Andersen <roberta@andes.is>",
   "license": "MIT",
   "scripts": {
-    "unicorn": "cd cicd-scripts && yarn unicorn"
+    "is-unicorn": "cd cicd-scripts && yarn --silent unicorn-affected --affected $(nx show projects --affected)"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -56,6 +56,7 @@
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "6.11.2"
+    "react-router-dom": "6.11.2",
+    "yargs": "^17.7.2"
   }
 }

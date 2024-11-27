@@ -21,3 +21,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: Check unicorn affected
+        run: |
+          if [ yarn is-unicorn ]; then
+            echo "Unicorn is affected"
+          else
+            echo "Unicorn is not affected"
+          fi
+
