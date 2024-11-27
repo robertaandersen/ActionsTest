@@ -50,6 +50,7 @@ function unicornAffected(args: AffectedProjects) {
     console.log('Unicorn found in affected projects');
     process.exit(0);
   } else {
+    console.log('No unicorn');
     process.exit(1);
   }
 }
