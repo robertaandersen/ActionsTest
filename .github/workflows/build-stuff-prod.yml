@@ -28,7 +28,16 @@ jobs:
 
       - name: Check unicorn affected
         run: |
-          UNICORN=$(yarn --silent deubg)
+          UNICORN=$(yarn --silent debug)
+          if [ "$UNICORN" = 'true' ]; then
+              echo "unicorn is detected"
+          else
+              echo "No unicorn"
+          fi
+
+      - name: Check unicorn affected (debug)
+        run: |
+          UNICORN=$(yarn --silent is-unicorn)
           if [ "$UNICORN" = 'true' ]; then
               echo "unicorn is detected"
           else
