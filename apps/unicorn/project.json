@@ -1,0 +1,9 @@
+{
+  "name": "unicorn",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/unicorn/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project unicorn --web",
+  "targets": {}
+}
