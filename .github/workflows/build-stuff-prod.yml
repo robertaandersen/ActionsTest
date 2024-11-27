@@ -29,7 +29,7 @@ jobs:
       - name: Check unicorn affected
         run: |
           git branch -a
-          yarn nx show projects --branch origin/main --affected
+          yarn nx show projects --branch remotes/origin/main --affected
 
 
 
