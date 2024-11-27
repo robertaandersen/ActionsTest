@@ -6,8 +6,8 @@
   "author": "Róberta Andersen <roberta@andes.is>",
   "license": "MIT",
   "scripts": {
-    "is-unicorn": "cd cicd-scripts && yarn --silent unicorn-affected --affected $(nx show projects --branch main --affected)",
-    "debug": "cd cicd-scripts && ts-node unicorns.ts test --affected $(nx show projects --branch main --affected)"
+    "is-unicorn": "cd cicd-scripts && yarn --silent unicorn-affected --affected $(nx show projects --base main --affected)",
+    "debug": "cd cicd-scripts && ts-node unicorns.ts test --affected $(nx show projects --base main --affected)"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
