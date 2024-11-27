@@ -1,0 +1,13 @@
+{
+  "name": "cicd-scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "unicorn": "node unicorns.ts"
+  },
+  "dependencies": {
+    "node": "^20.18.1",
+    "typescript": "^5.7.2"
+  }
+}
