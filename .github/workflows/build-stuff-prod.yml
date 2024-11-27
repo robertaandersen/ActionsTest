@@ -30,9 +30,9 @@ jobs:
         run: |
           # git branch -a
           # yarn nx show projects --base origin/main --affected
-          yarn affected
+          # yarn affected
           # yarn debug
-          # yarn is-unicorn
+          yarn is-unicorn
 
 
 
