@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "affected": "nx show projects --base origin/main --affected",
-    "is-unicorn": "cd cicd-scripts && ts-node unicorns.ts unicorn-affected unicorn-affected --affected $(nx show projects --base origin/main --affected)",
+    "is-unicorn": "cd cicd-scripts && ts-node unicorns.ts unicorn-affected --affected $(nx show projects --base origin/main --affected)",
     "debug": "cd cicd-scripts && ts-node unicorns.ts test --affected $(nx show projects --base origin/main --affected)"
   },
   "devDependencies": {
