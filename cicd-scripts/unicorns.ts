@@ -28,6 +28,11 @@ yargs(process.argv.slice(2))
 
 
 function unicornAffected(args: AffectedProjects) {
-  process.exit(args.affected.some(item => unicornApps.includes(item)) ? 0 : 1);
+  const unicornAppFoundInaffected = args.affected.some(item => unicornApps.includes(item));
+  if(unicornAppFoundInaffected){
+    process.exit(0);
+  } else {
+    process.exit(1);
+  }
 }
 
