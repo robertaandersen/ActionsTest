@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out Build Stuff PROD
 on:
   workflow_dispatch:
   push:
-    branches: [main, feature/*]
+    branches: [main, feature]
 
 jobs:
   Runs-On-PROD:
