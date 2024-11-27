@@ -8,7 +8,7 @@
   "scripts": {
     "affected": "nx show projects --base origin/main --affected",
     "is-unicorn": "cd cicd-scripts && ts-node unicorns.ts unicorn-affected --affected $(nx show projects --base origin/main --affected)",
-    "debug": "cd cicd-scripts && ts-node unicorns.ts test --affected $(nx show projects --base origin/main --affected)"
+    "debug": "affected=$(nx show projects --base origin/main --affected) && cd cicd-scripts && ts-node unicorns.ts test --affected $affected"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
