@@ -25,8 +25,6 @@ jobs:
 
       - name: checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: yarn install
         run: yarn install
@@ -34,7 +32,7 @@ jobs:
       - name: Check unicorn affected
         run: |
           git branch -a
-          yarn nx show projects --branch main --affected
+          yarn nx show projects --branch origin/main --affected
 
 
 
