@@ -5,6 +5,9 @@
   "repository": "git@github.com:robertaandersen/ActionsTest.git",
   "author": "Róberta Andersen <roberta@andes.is>",
   "license": "MIT",
+  "scripts": {
+    "unicorn": "cd cicd-scripts && yarn unicorn"
+  },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@nx/devkit": "20.0.11",

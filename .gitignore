@@ -23,7 +23,6 @@ dist/
 tmp/
 coverage/
 
-
 # Yarn specific files
 .yarn/*
 !.yarn/cache
