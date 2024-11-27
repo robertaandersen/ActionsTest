@@ -18,6 +18,11 @@ jobs:
       - name: Echos the repo variables
         run: echo "Hallo ${{ vars.FOO }}."
 
+      - name: checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: checkout
         uses: actions/checkout@v4
         with:
@@ -29,7 +34,7 @@ jobs:
       - name: Check unicorn affected
         run: |
           git branch -a
-          yarn nx show projects --branch remotes/origin/main --affected
+          yarn nx show projects --branch main --affected
 
 
 
