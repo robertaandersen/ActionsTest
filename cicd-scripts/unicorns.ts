@@ -20,6 +20,7 @@ yargs(process.argv.slice(2))
           alias: ['affected'],
           type: 'array',
           demandOption: true,
+          default: [],
         }),
         unicornAffected,
   )
