@@ -18,12 +18,6 @@ jobs:
       - name: Echos the repo variables
         run: echo "Hallo ${{ vars.FOO }}."
 
-      - name: checkout main
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-
       - name: checkout
         uses: actions/checkout@v4
         with:
