@@ -25,13 +25,7 @@ jobs:
         run: yarn install
 
       - name: Check unicorn affected
-        run: |
-          UNICORN=$(yarn --silent is-unicorn)
-          if [ "$UNICORN" = true ]; then
-              echo "unicorn is detected"
-          else
-              echo "No unicorn"
-          fi
+        run: ./test.sh
 
 
 
