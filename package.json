@@ -6,7 +6,7 @@
   "author": "Róberta Andersen <roberta@andes.is>",
   "license": "MIT",
   "scripts": {
-    "is-unicorn": "cd cicd-scripts && yarn --silent unicorn-affected --affected $(nx show projects --affected)"
+    "is-unicorn": "cd cicd-scripts && yarn --silent unicorn-affected --affected $(nx show projects --branch main --affected)"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
