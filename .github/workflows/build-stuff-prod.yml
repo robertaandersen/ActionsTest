@@ -25,7 +25,9 @@ jobs:
         run: yarn install
 
       - name: Check unicorn affected
-        run: yarn nx show projects --branch origin/main --affected
+        run: |
+          git branch -a
+          yarn nx show projects --branch origin/main --affected
 
 
 
