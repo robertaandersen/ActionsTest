@@ -1,17 +1,25 @@
 name: Build PROD
 run-name: ${{ github.actor }} is testing out Build Stuff PROD
 on:
+  # workflow_dispatch:
+  # push:
+  #   branches: [main, feature]
   workflow_dispatch:
-  push:
-    branches: [main]
-
+  create:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - labeled
 jobs:
   Runs-On-PROD:
     runs-on: ubuntu-latest
-
+    env:
+      ARTIFACT_NAME: ActionsTest-${{ github.sha }}
     environment:
       name: PROD
-
+    outputs:
+      artifact-name: ${{ env.ARTIFACT_NAME }}
     steps:
       - name: Echos the env variables
         run: echo "Hallo ${{ vars.HELLO }}."
@@ -20,12 +28,15 @@ jobs:
 
       - name: checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: yarn install
         run: yarn install
 
-      - name: Check unicorn affected
-        run: yarn nx show projects --affected
+      - name: debug
+        run: |
+          node cicd-scripts/create-release.mjs
 
 
 

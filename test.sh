@@ -1,6 +1,5 @@
-yarn is-unicorn
-UNICORN=$(yarn --silent is-unicorn)
-if [ "$UNICORN" = true ]; then
+UNICORN=$(yarn --silent deubg)
+if [ "$UNICORN" = 'true' ]; then
     echo "unicorn is detected"
 else
     echo "No unicorn"

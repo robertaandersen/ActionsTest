@@ -33,3 +33,5 @@ coverage/
 !.yarn/versions
 .pnp.*
 .yarnrc.yml
+
+.env
