@@ -1,5 +1,8 @@
 import { Octokit } from '@octokit/rest'
 
+const owner = "robertaandersen"
+const repo = "ActionsTest"
+
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN2 })
 
@@ -46,6 +49,24 @@ const { data: pullRequest } = await octokit.rest.pulls.get({
     repo: "ActionsTest",
     pull_number: 1,
 });
+
+
+await octokit.request(`POST /repos/${owner}/${repo}/git/tags`, {
+    owner: owner,
+    repo: repo,
+    tag: 'v0.0.1',
+    message: 'initial version',
+    object: pullRequest.head.sha,
+    type: 'commit',
+    tagger: {
+        name: 'Monalisa Octocat',
+        email: 'octocat@github.com',
+        date: '2011-06-17T14:53:35-07:00'
+    },
+    headers: {
+        'X-GitHub-Api-Version': '2022-11-28'
+    }
+})
 
 const { data: tag } = octokit.rest.git.createTag({
     owner: 'robertaandersen',
