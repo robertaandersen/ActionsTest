@@ -73,27 +73,27 @@ console.log(tag)
 // https://github.com/octokit/core.js#readme
 
 
-// await octokit.request('POST /repos/{owner}/{repo}/git/refs', {
+// await octokit.git.createRef({
 //     owner: 'robertaandersen',
 //     repo: 'ActionsTest',
-//     ref: 'refs/heads/featureA',
-//     sha: 'aa218f56b14c9653891f9e74264a383fa43fefbd',
+//     ref: 'refs/tags/test',
+//     sha: tag.data.sha,
 //     headers: {
 //         'X-GitHub-Api-Version': '2022-11-28'
 //     }
 // })
 
 
-// octokit.rest.repos.createRelease({
-//     owner: "robertaandersen",
-//     repo: "ActionsTest",
-//     tag_name: "test-123",
-//     name: "Test 123",
-// }).then(({ data }) => {
-//     console.log(data)
-// }).catch((error) => {
-//     console.log(error)
-// });
+octokit.rest.repos.createRelease({
+    owner: "robertaandersen",
+    repo: "ActionsTest",
+    tag_name: tag.data.tag,
+    name: "Test 123",
+}).then(({ data }) => {
+    console.log(data)
+}).catch((error) => {
+    console.log(error)
+});
 
 // Octokit.js
 // https://github.com/octokit/core.js#readme
