@@ -14,12 +14,13 @@ on:
 jobs:
   Runs-On-PROD:
     runs-on: ubuntu-latest
-
+    env:
+      ARTIFACT_NAME: ActionsTest-${{ github.sha }}
     environment:
       name: PROD
     outputs:
       artifact-url: ${{ steps.artifact-upload-step.outputs.artifact-url }}
-      artifact-name: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+      artifact-name: ${{ env.ARTIFACT_NAME }}
     steps:
       - name: Echos the env variables
         run: echo "Hallo ${{ vars.HELLO }}."
@@ -37,14 +38,13 @@ jobs:
         env:
           GIT_COMMIT_SHA: ${{ github.sha }}
         with:
-          name: ActionsTest-${{ github.sha }}
+          name: ${{ env.ARTIFACT_NAME }}
           overwrite: true
           path: .
           retention-days: 1
       - name: Set env variables
         run: |
           echo artifact-url=${{ steps.artifact-upload-step.outputs.artifact-url }} >> $GITHUB_ENV
-          echo artifact-name=${{ steps.artifact-upload-step.outputs.artifact-url }} >> $GITHUB_ENV
 
   Get-Artifact-PROD:
     runs-on: ubuntu-latest
