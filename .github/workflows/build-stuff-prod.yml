@@ -50,16 +50,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: Runs-On-PROD
     steps:
-        # - uses: actions/download-artifact@v4
-        #   with:
-        #     name: my-artifact
-        # - name: Display structure of downloaded files
-        #   run: ls -R
-
-        - name: Download Artifact
-          run: |
-            echo 'Artifact url is ${{ needs.Runs-On-PROD.outputs.artifact-url }}'
-            echo 'Artifact name is ${{ needs.Runs-On-PROD.outputs.artifact-name }}'
+        - uses: actions/download-artifact@v4
+          with:
+            name: ${{ needs.Runs-On-PROD.outputs.artifact-name }}
+        - name: Display structure of downloaded files
+          run: ls -R
 
       # - name: yarn install
       #   run: yarn install
