@@ -19,7 +19,7 @@ jobs:
           HeadRef: ${{ github.head_ref }} #The target branch e.g. main (feature/unicorn-app)
           RefName: ${{ github.ref_name }} #The branch being merged e.g. (unicorn-pipe-rel2)
         run: |
-          echo '{"targetBranch": "${{env.HeadRef}}", "sourceBranch": "${{env.Refname}}" }'
+          echo {"targetBranch": "$HeadRef", "sourceBranch": "$Refname" }
       - name: Echos the env variables
         run: echo "Hallo ${{ vars.HELLO }}."
       - name: Echos the repo variables
