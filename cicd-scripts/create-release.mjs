@@ -47,9 +47,6 @@ const { data: pullRequest } = await octokit.rest.pulls.get({
     pull_number: 1,
 });
 
-var tag = await octokit.rest.git.getTag({ owner: "robertaandersen", repo: "ActionsTest", tag_sha: pullRequest.head.sha });
-console.log(tag)
-
 const { data: tag } = octokit.rest.git.createTag({
     owner: 'robertaandersen',
     repo: 'ActionsTest',
