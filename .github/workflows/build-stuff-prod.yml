@@ -29,20 +29,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: test
+      # - name: test
+      #   env:
+      #     GIT_COMMIT_SHA: ${{ github.sha }}
+      #   run: |
+      #     ls -al
+      #     echo $GIT_COMMIT_SHA
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        id: artifact-upload-step
         env:
           GIT_COMMIT_SHA: ${{ github.sha }}
-        run: |
-          ls -al
-          echo $GIT_COMMIT_SHA
+        with:
+          name: ActionsTest-$GIT_COMMIT_SHA
+          overwrite: true
+          path: .
+          retention-days: 1
 
-      # - name: 'Upload Artifact'
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: ActionsTest-$GITHUB_SHA
-      #     overwrite: true
-      #     path: .
-      #     retention-days: 1
+      - name: Output artifact ID
+        run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
 
       # - name: yarn install
       #   run: yarn install
