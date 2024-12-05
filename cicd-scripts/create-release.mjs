@@ -68,21 +68,21 @@ await octokit.request(`POST /repos/${owner}/${repo}/git/tags`, {
     }
 })
 
-const { data: tag } = octokit.rest.git.createTag({
-    owner: 'robertaandersen',
-    repo: 'ActionsTest',
-    tag: "TESTTEST",
-    message: "Testing test",
-    object: pullRequest.head.sha,
-    type: "commit",
-    tagger: {
-        name: pullRequest.user.login
-    }
-}).then(({ tag }) => {
-    console.log(tag)
-}).catch((error) => {
-    console.error(error)
-})
+// const { data: tag } = octokit.rest.git.createTag({
+//     owner: 'robertaandersen',
+//     repo: 'ActionsTest',
+//     tag: "TESTTEST",
+//     message: "Testing test",
+//     object: pullRequest.head.sha,
+//     type: "commit",
+//     tagger: {
+//         name: pullRequest.user.login
+//     }
+// }).then(({ tag }) => {
+//     console.log(tag)
+// }).catch((error) => {
+//     console.error(error)
+// })
 
 
 
