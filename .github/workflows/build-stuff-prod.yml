@@ -19,13 +19,6 @@ jobs:
       name: PROD
 
     steps:
-      - name: Check unicorn affected
-        id: unicorn-affected
-        env:
-          HeadRef: ${{ github.head_ref }} #The target branch e.g. main (feature/unicorn-app)
-          RefName: ${{ github.ref_name }} #The branch being merged e.g. (unicorn-pipe-rel2)
-        run: |
-          echo "{\"targetBranch\": \"$HeadRef\", \"sourceBranch\": \"$RefName\" }"
       - name: Echos the env variables
         run: echo "Hallo ${{ vars.HELLO }}."
       - name: Echos the repo variables
@@ -36,26 +29,37 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: yarn install
-        run: yarn install
+      - name: test
+        run: ls -al
 
-      - name: Check unicorn affected
-        run: |
-          UNICORN=$(yarn --silent debug)
-          if [ "$UNICORN" = 'true' ]; then
-              echo "unicorn is detected"
-          else
-              echo "No unicorn"
-          fi
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ActionsTest-"$GITHUB_SHA"
+          overwrite: true
+          path: .
+          retention-days: 1
 
-      - name: Check unicorn affected (debug)
-        run: |
-          UNICORN=$(yarn --silent is-unicorn)
-          if [ "$UNICORN" = 'true' ]; then
-              echo "unicorn is detected"
-          else
-              echo "No unicorn"
-          fi
+      # - name: yarn install
+      #   run: yarn install
+
+      # - name: Check unicorn affected
+      #   run: |
+      #     UNICORN=$(yarn --silent debug)
+      #     if [ "$UNICORN" = 'true' ]; then
+      #         echo "unicorn is detected"
+      #     else
+      #         echo "No unicorn"
+      #     fi
+
+      # - name: Check unicorn affected (debug)
+      #   run: |
+      #     UNICORN=$(yarn --silent is-unicorn)
+      #     if [ "$UNICORN" = 'true' ]; then
+      #         echo "unicorn is detected"
+      #     else
+      #         echo "No unicorn"
+      #     fi
 
 
 
