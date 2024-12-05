@@ -64,26 +64,6 @@ const { data: tag } = octokit.rest.git.createTag({
 })
 
 
-// console.log(pullRequest.merge_commit_sha)
-// const { data: tag } = octokit.rest.git.createTag({
-//     owner: "robertaandersen",
-//     repo: "ActionsTest",
-//     tag: "v1.0.0",
-//     message: "Testing test",
-//     object: pullRequest.merge_commit_sha,
-//     type: "commit",
-//     tagger: {
-//         name: "Roberta Andersen",
-//         email: "robertaandersen1978@gmail.com"
-//     }
-// }).then(({ data }) => {
-//     console.log(data)
-// }).catch((error) => {
-//     console.error(error)
-// })
-
-// https://github.com/octokit/core.js#readme
-
 
 // await octokit.git.createRef({
 //     owner: 'robertaandersen',
@@ -96,16 +76,16 @@ const { data: tag } = octokit.rest.git.createTag({
 // })
 
 
-octokit.rest.repos.createRelease({
-    owner: "robertaandersen",
-    repo: "ActionsTest",
-    tag_name: tag.data.tag,
-    name: "Test 123",
-}).then(({ data }) => {
-    console.log(data)
-}).catch((error) => {
-    console.log(error)
-});
+// octokit.rest.repos.createRelease({
+//     owner: "robertaandersen",
+//     repo: "ActionsTest",
+//     tag_name: tag.data.tag,
+//     name: "Test 123",
+// }).then(({ data }) => {
+//     console.log(data)
+// }).catch((error) => {
+//     console.log(error)
+// });
 
 // Octokit.js
 // https://github.com/octokit/core.js#readme
