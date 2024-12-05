@@ -42,7 +42,7 @@ jobs:
         env:
           GIT_COMMIT_SHA: ${{ github.sha }}
         with:
-          name: ActionsTest-$GIT_COMMIT_SHA
+          name: ActionsTest-${{ github.sha }}
           overwrite: true
           path: .
           retention-days: 1
