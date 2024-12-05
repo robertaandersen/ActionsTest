@@ -35,7 +35,7 @@ jobs:
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
         with:
-          name: ActionsTest-"$GITHUB_SHA"
+          name: ActionsTest-$GITHUB_SHA
           overwrite: true
           path: .
           retention-days: 1
