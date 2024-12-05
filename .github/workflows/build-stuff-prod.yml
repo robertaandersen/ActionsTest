@@ -19,7 +19,6 @@ jobs:
     environment:
       name: PROD
     outputs:
-      artifact-url: ${{ steps.artifact-upload-step.outputs.artifact-url }}
       artifact-name: ${{ env.ARTIFACT_NAME }}
     steps:
       - name: Echos the env variables
@@ -35,23 +34,9 @@ jobs:
       - name: yarn install
         run: yarn install
 
-      - name: Check unicorn affected
+      - name: debug
         run: |
-          UNICORN=$(yarn --silent debug)
-          if [ "$UNICORN" = 'true' ]; then
-              echo "unicorn is detected"
-          else
-              echo "No unicorn"
-          fi
-
-      - name: Check unicorn affected (debug)
-        run: |
-          UNICORN=$(yarn --silent is-unicorn)
-          if [ "$UNICORN" = 'true' ]; then
-              echo "unicorn is detected"
-          else
-              echo "No unicorn"
-          fi
+          node cicd-scripts/create-release.mjs
 
 
 
