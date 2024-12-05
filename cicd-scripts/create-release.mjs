@@ -47,11 +47,26 @@ const { data: pullRequest } = await octokit.rest.pulls.get({
     pull_number: 1,
 });
 
-
-
-// var tag = await octokit.rest.git.getTag({ owner: "robertaandersen", repo: "ActionsTest", tag_sha: "88b74b40306b3702797d234db5a8786f1f591fe1" });
-var tag = await octokit.rest.git.getTag({ owner: "robertaandersen", repo: "ActionsTest", tag_sha: "16e64a933edd623ae89a9581878c2e55c6074dea" });
+var tag = await octokit.rest.git.getTag({ owner: "robertaandersen", repo: "ActionsTest", tag_sha: pullRequest.head.sha });
 console.log(tag)
+
+const { data: tag } = octokit.rest.git.createTag({
+    owner: 'robertaandersen',
+    repo: 'ActionsTest',
+    tag: "TESTTEST",
+    message: "Testing test",
+    object: pullRequest.head.sha,
+    type: "commit",
+    tagger: {
+        name: pullRequest.user.login
+    }
+}).then(({ tag }) => {
+    console.log(tag)
+}).catch((error) => {
+    console.error(error)
+})
+
+
 // console.log(pullRequest.merge_commit_sha)
 // const { data: tag } = octokit.rest.git.createTag({
 //     owner: "robertaandersen",
